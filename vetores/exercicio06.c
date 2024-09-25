@@ -26,6 +26,6 @@ int main() {
         printf("[%d] ", vetorB[i]);
         
     }
-
+ print("\n acabou!!");
     return 0;
 }
