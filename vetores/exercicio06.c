@@ -1,31 +1,25 @@
-// Leia um vetor A com 6 elementos do tipo real. Construir um vetor B, em que cada posição de índice ímpar do vetor B deve ser atribuída com um elemento de índice par existente no vetor A e cada posição de índice par do vetor B deve ser atribuída com um elemento de índice ímpar existente no vetor A. Apresentar os elementos dos dois vetores.
-
+//Elabore um algoritmo que solicite/leia dados, do tipo caractere, em dois vetores (A e B) de 10 elementos cada, simultaneamente. Gerar um terceiro vetor (C) de mesmo tamanho e tipo, sendo o resultado da união dos dois vetores  anteriores, isto é, cada elemento do vetor C será formado pela concatenação do conteúdo do elemento A e elemento B. Exemplo: A[1]=“abc” e B[1]=”def” resulta em C[1]=”abcdef” Considere que os vetores poderão ter caracteres repetidos.  Antes de encerrar o algoritmo mostre o conteúdo dos 3 vetores.
 #include <stdio.h>
-
+#include<string.h>
 int main() {
-    int vetorA[6], vetorB[6];
+    char vetorA[10][50], vetorB[10][50], vetorC[10][50];
+
     
-    for (int i=0; i<6; i++){
-        printf("A[%d] ", i);
-        scanf("%d", &vetorA[i]);
+    for(int i=0; i<10; i++){
+        printf("A[%d]", i);
+        scanf(" %s", &vetorA[i]);
+        printf("B[%d]", i);
+        scanf(" %s", &vetorB[i]);
     }
-    for (int i=0; i<6; i++){
-        if (i%2==0){
-            vetorB[i] = vetorA[i+1];
-        } else {
-             vetorB[i] = vetorA[i-1];
-        }
+    
+    for(int i=0; i<10; i++){
+        strcpy(vetorC[i], vetorA[i]);
+        strcat(vetorC[i], vetorB[i]);
+    }    
+
+    printf("Vetor C: \n");
+    for(int i=0; i<10; i++){
+        printf("[%s] ", vetorC[i]);
     }
-    printf("Vetor A\n");
-    for (int i=0; i<6; i++){
-        printf("[%d] ", vetorA[i]);
-        
-    }
-    printf("Vetor B\n");
-    for (int i=0; i<6; i++){
-        printf("[%d] ", vetorB[i]);
-        
-    }
- print("\n acabou!!");
     return 0;
 }
